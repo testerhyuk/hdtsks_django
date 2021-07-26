@@ -14,7 +14,6 @@ from pathlib import Path
 import os, environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-import sql_settings
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -92,7 +91,16 @@ WSGI_APPLICATION = 'hdtsks.wsgi.application'
 #     }
 # }
 
-DATABASES = sql_settings.DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
