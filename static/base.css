@@ -1,0 +1,31 @@
+/* Header*/
+.hdtsks_header {
+    text-align:center;
+    margin: 2rem 0;
+}
+
+/* Logo font */
+.hdtsks_logo {
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+/* Header logo size */
+.h1, h1 {
+    font-size: 4rem;
+}
+
+/* Footer logo size */
+.h6, h6 {
+    font-size: 1.5rem;
+}
+
+/* Footer Company Introduction */
+.hdtsks_footer_introduction {
+    font-size: .6rem;
+}
+
+/* Footer */
+.hdtsks_footer {
+    text-align:center;
+    margin-top: 2rem;
+}

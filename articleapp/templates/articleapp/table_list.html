@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% include 'select_date2.html' %}
+
+    <style>
+    #btn{
+        border: 1px solid deepskyblue;
+        background-color: rgba(0,0,0,0);
+        color: deepskyblue;
+        padding: 5px;
+    }
+
+    .container {
+        max-width: 100%;
+        height: 700px;
+        overflow: auto;
+    }
+
+    .fixedHeader {
+        position: sticky;
+        top: 0;
+        background-color: darksalmon;
+    }
+    tr:nth-child(even){background: #fdf5e6;}
+    </style>
+
+    <div class="container">
+            <table class="table table-responsive" style="width: auto; margin-right: auto; margin-left: auto;">
+                <thead style="font-size: 1.06rem; height: 50px;">
+                    <tr class="fixedHeader">
+                        <th width="110"><B>날짜</B></th>
+                        <th width="400"><B>공고명</B></th>
+                        <th width="200"><B>종목</B></th>
+                        <th><B>기초금액</B></th>
+                        <th><B>참여 업체 수</B></th>
+                        <th><B>평균(1365)</B></th>
+                        <th><B>특수 사정률</B></th>
+                        <th><B>특수 예가 수</B></th>
+                        <th><B>형제 사정률</B></th>
+                        <th><B>형제 예가 수</B></th>
+                        <th><B>휴먼 사정률</B></th>
+                        <th><B>휴먼 예가 수</B></th>
+                        <th width="105"><B>링크</B></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for companyrate in company_list %}
+                    <tr style="text-align: left">
+                        <td>{{ companyrate.date }}</td>
+                        <td>{{ companyrate.notice_name }}</td>
+                        <td>{{ companyrate.event }}</td>
+                        <td>{{ companyrate.basic_amount }}</td>
+                        <td>{{ companyrate.num_of_company }}</td>
+                        <td>{{ companyrate.avg_of_1365 }}</td>
+                        <td>{{ companyrate.hd_rate }}</td>
+                        <td>{{ companyrate.hd_num }}</td>
+                        <td>{{ companyrate.hj_rate }}</td>
+                        <td>{{ companyrate.hj_num }}</td>
+                        <td>{{ companyrate.hm_rate }}</td>
+                        <td>{{ companyrate.hm_num }}</td>
+                        <td>
+                            <button type="button" class="btn btn-outline-danger" onclick="location.href={{ companyrate.url }}" style="opacity: 1; align-items: center">
+                                공고 보기
+                            </button>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tbody>
+            </table>
+    </div>
+{% endblock %}
